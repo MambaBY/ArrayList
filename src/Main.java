@@ -31,7 +31,10 @@ public class Main {
             arrayList.add(Math.random());
         }
         printListElements(arrayList);
-        countAverageValue(arrayList);
+        System.out.println("Avarage value is " + countAverageValue(arrayList));
+        multiplyByTwo(arrayList);
+        printListElements(arrayList);
+
 
 
     }
@@ -45,11 +48,21 @@ public class Main {
     }
 
     // Task 'B' Method for counting the average value of ArrayList elements
-    public static void countAverageValue(ArrayList<Double> arrayList){
+    public static double countAverageValue(ArrayList<Double> arrayList){
         double sum =0;
         for (double element : arrayList) {
             sum += element;
         }
-        System.out.println("Average value of ArrayList elements is equal " + sum/arrayList.size());
+        return sum/arrayList.size();
+    }
+
+    //Task 'Г'. Method of multiplying elements by two that are less than the average value.
+    public static void multiplyByTwo(ArrayList<Double> arrayList){
+        double averageValue = countAverageValue(arrayList);
+        for (int i = 0; i < arrayList.size(); i++) {
+            if(arrayList.get(i) < averageValue){
+                arrayList.set(i, arrayList.get(i)*2);
+            }
+        }
     }
 }

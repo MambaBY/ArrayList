@@ -1,0 +1,73 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.ArrayList;\r\n\r\n/*\r\n* Задача 18. На коллекции класса ArrayList\r\n* Используя один класс:\r\n* а. создать коллекцию и заполнить ее двадцатью случайными числами от ноля до 1, используя метод Math.random() (по умолчанию, он именно так и делает);\r\n* б. вывести исходную коллекцию на консоль с комментарием, выделив функционал в метод;\r\n* в. вычислить среднее арифметическое коллекции, выделив функционал в метод;\r\n* г. умножить на 2 все элементы коллекции, которые меньше среднего арифметического, выделив функционал в метод;\r\n* д. вывести полученную коллекцию на консоль с комментарием;\r\n* е. отсортировать коллекцию по возрастанию, не используя метод .sort(), выделив функционал в метод;\r\n* ж. вывести полученную коллекцию на консоль с комментарием;\r\n* з. найти среднее арифметическое коллекции;\r\n* и. удалить из коллекции все элементы, меньшие среднего арифметического, выделив функционал в метод;\r\n* к. вывести полученную коллекцию на консоль с комментарием;\r\n* л. найти среднее арифметическое коллекции;\r\n* м. после всех элементов, меньших среднего арифметического, добавить элемент со значением 1000, выделив функционал в метод;\r\n* н. вывести полученную коллекцию на консоль с комментарием;\r\n* о. определить длину коллекции;\r\n* п. создать новую коллекцию;\r\n* р. поместить в новую коллекцию три средних элемента исходной коллекции, если ее размер нечетен, и два средних элемента коллекции, если четен, выделив функционал в метод;\r\n* с. вывести на консоль новую коллекцию;\r\n* т. оставить в исходной коллекции все элементы, кроме элементов новой коллекции, не создавая собственных методов;\r\n* у. вывести на консоль конечный состав исходной коллекции.\r\n */\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        ArrayList<Double> arrayList = new ArrayList<Double>();\r\n\r\n        for (int i = 0; i < 20; i++) {\r\n            arrayList.add(Math.random());\r\n        }\r\n        printListElements(arrayList);\r\n        countAverageValue(arrayList);\r\n\r\n\r\n    }\r\n\r\n    //Task 'Б'. Method for printig elements of ArrayList to console\r\n    public static void printListElements(ArrayList<Double> arrayList){\r\n        System.out.println(\"Elements of ArrayList: \");\r\n        for (double element : arrayList  ) {\r\n            System.out.println(element);\r\n        }\r\n    }\r\n\r\n    // Task 'B' Method for counting the average value of ArrayList elements\r\n    public static void countAverageValue(ArrayList<Double> arrayList){\r\n        double sum =0;\r\n        for (double element : arrayList) {\r\n            sum += element;\r\n        }\r\n        System.out.println(\"Average value of ArrayList elements is equal \" + sum/arrayList.size());\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision aa7573467791770a2d1440259a45b6dc3dbcf72a)
++++ b/src/Main.java	(date 1686770328794)
+@@ -31,7 +31,10 @@
+             arrayList.add(Math.random());
+         }
+         printListElements(arrayList);
+-        countAverageValue(arrayList);
++        System.out.println("Avarage value is " + countAverageValue(arrayList));
++        multiplyByTwo(arrayList);
++        printListElements(arrayList);
++
+ 
+ 
+     }
+@@ -45,11 +48,21 @@
+     }
+ 
+     // Task 'B' Method for counting the average value of ArrayList elements
+-    public static void countAverageValue(ArrayList<Double> arrayList){
++    public static double countAverageValue(ArrayList<Double> arrayList){
+         double sum =0;
+         for (double element : arrayList) {
+             sum += element;
+         }
+-        System.out.println("Average value of ArrayList elements is equal " + sum/arrayList.size());
++        return sum/arrayList.size();
++    }
++
++    //Task 'Г'. Method of multiplying elements by two that are less than the average value.
++    public static void multiplyByTwo(ArrayList<Double> arrayList){
++        double averageValue = countAverageValue(arrayList);
++        for (int i = 0; i < arrayList.size(); i++) {
++            if(arrayList.get(i) < averageValue){
++                arrayList.set(i, arrayList.get(i)*2);
++            }
++        }
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e54388eb-5f12-48f8-8179-e0480d869368\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/ArrayList.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2RCm2345CbnZodTBBNHYGqeZdMa\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e54388eb-5f12-48f8-8179-e0480d869368\" name=\"Changes\" comment=\"\" />\r\n      <created>1686762231664</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1686762231664</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision aa7573467791770a2d1440259a45b6dc3dbcf72a)
++++ b/.idea/workspace.xml	(date 1686768692411)
+@@ -5,13 +5,8 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="e54388eb-5f12-48f8-8179-e0480d869368" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/ArrayList.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
