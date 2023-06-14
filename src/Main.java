@@ -25,13 +25,13 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Double> arrayList = new ArrayList<Double>();
+        ArrayList<Double> arrayList = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
             arrayList.add(Math.random());
         }
         printListElements(arrayList);
-        System.out.println("Avarage value is " + countAverageValue(arrayList));
+        System.out.println("Avarage value is " + countAverageValue(arrayList) +"\n");
         multiplyByTwo(arrayList);
         printListElements(arrayList);
 
@@ -45,6 +45,7 @@ public class Main {
         for (double element : arrayList  ) {
             System.out.println(element);
         }
+        System.out.println();
     }
 
     // Task 'B' Method for counting the average value of ArrayList elements
