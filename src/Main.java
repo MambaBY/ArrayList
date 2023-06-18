@@ -56,6 +56,12 @@ public class Main {
         addMiddleElementsToCollection(arrayList, arrayListNew);
         printListElements(arrayListNew);
 
+        System.out.println("++++++++++");
+        arrayList.removeAll(arrayListNew);
+        printListElements(arrayList);
+
+
+
 
 
     }
