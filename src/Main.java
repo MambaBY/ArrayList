@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /*
 * Задача 18. На коллекции класса ArrayList
@@ -39,6 +40,9 @@ public class Main {
         sortInAsc(arrayList);
         printListElements(arrayList);
         System.out.println("Avarage value is " + countAverageValue(arrayList) +"\n");
+
+        removeElement(arrayList);
+        printListElements(arrayList);
 
 
 
@@ -89,4 +93,12 @@ public class Main {
             }
         }
     }
+
+    // //Task 'И'. Method of removing elements from collection
+
+    public static void removeElement(ArrayList<Double> arrayList){
+        double averageValue = countAverageValue(arrayList);
+        arrayList.removeIf(aDouble -> aDouble < averageValue);
+    }
+
 }
