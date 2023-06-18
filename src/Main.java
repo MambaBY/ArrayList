@@ -28,6 +28,7 @@ import java.util.SortedMap;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Double> arrayList = new ArrayList<>();
+        ArrayList<Double> arrayListNew = new ArrayList<>();
 
         for (int i = 0; i < 20; i++) {
             arrayList.add(Math.random());
@@ -50,6 +51,10 @@ public class Main {
         addNumberAfter(arrayList);
         printListElements(arrayList);
         System.out.println("Collection length is " + arrayList.size());
+
+        System.out.println("++++++++++");
+        addMiddleElementsToCollection(arrayList, arrayListNew);
+        printListElements(arrayListNew);
 
 
 
@@ -118,8 +123,22 @@ public class Main {
         for (int i = 0; i < arrayList.size(); i++) {
             if(arrayList.get(i) < averageValue && arrayList.get(i+1) >= averageValue) {
                 arrayList.add(i+1, 1000d);
-
             }
+        }
+    }
+
+    /*
+     * Task 'P'. Method of adding middle elements to a new collection
+     */
+
+    public static void addMiddleElementsToCollection (ArrayList<Double> arrayList, ArrayList<Double> arrayListNew) {
+        if(arrayList.size()%2 == 0){
+            arrayListNew.add(arrayList.get(arrayList.size()/2-1));
+            arrayListNew.add(arrayList.get(arrayList.size()/2));
+        }else {
+            arrayListNew.add(arrayList.get(arrayList.size()/2 - 1));
+            arrayListNew.add(arrayList.get(arrayList.size()/2));
+            arrayListNew.add(arrayList.get(arrayList.size()/2 + 1));
 
 
         }
