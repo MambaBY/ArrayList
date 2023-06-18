@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.SortedMap;
+
 
 /*
 * Задача 18. На коллекции класса ArrayList
@@ -48,6 +49,7 @@ public class Main {
         System.out.println("++++++++++");
         addNumberAfter(arrayList);
         printListElements(arrayList);
+        System.out.println("Collection length is " + arrayList.size());
 
 
 
