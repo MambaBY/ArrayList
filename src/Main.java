@@ -43,6 +43,11 @@ public class Main {
 
         removeElement(arrayList);
         printListElements(arrayList);
+        System.out.println("Avarage value is " + countAverageValue(arrayList) +"\n");
+
+        System.out.println("++++++++++");
+        addNumberAfter(arrayList);
+        printListElements(arrayList);
 
 
 
@@ -94,11 +99,29 @@ public class Main {
         }
     }
 
-    // //Task 'И'. Method of removing elements from collection
+    /*
+     * Task 'И'. Method of removing elements from collection
+     */
 
     public static void removeElement(ArrayList<Double> arrayList){
         double averageValue = countAverageValue(arrayList);
         arrayList.removeIf(aDouble -> aDouble < averageValue);
     }
+
+    /*
+     * Task 'M'. Method of removing elements from collection
+     */
+    public static void addNumberAfter (ArrayList<Double> arrayList) {
+        double averageValue = countAverageValue(arrayList);
+        for (int i = 0; i < arrayList.size(); i++) {
+            if(arrayList.get(i) < averageValue && arrayList.get(i+1) >= averageValue) {
+                arrayList.add(i+1, 1000d);
+
+            }
+
+
+        }
+    }
+
 
 }
