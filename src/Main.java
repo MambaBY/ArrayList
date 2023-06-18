@@ -34,6 +34,11 @@ public class Main {
         System.out.println("Avarage value is " + countAverageValue(arrayList) +"\n");
         multiplyByTwo(arrayList);
         printListElements(arrayList);
+        System.out.println();
+
+        sortInAsc(arrayList);
+        printListElements(arrayList);
+        System.out.println("Avarage value is " + countAverageValue(arrayList) +"\n");
 
 
 
@@ -63,6 +68,24 @@ public class Main {
         for (int i = 0; i < arrayList.size(); i++) {
             if(arrayList.get(i) < averageValue){
                 arrayList.set(i, arrayList.get(i)*2);
+            }
+        }
+    }
+
+    //Task 'E'. Method of sorting in ascending order
+    public static void sortInAsc (ArrayList<Double> arrayList){
+        boolean isSorted = false;
+        double m;
+        while (!isSorted){
+            isSorted = true;
+            for (int i = 0; i < arrayList.size()-1; i++) {
+                if(arrayList.get(i) > arrayList.get(i+1)){
+                    isSorted=false;
+                    m = arrayList.get(i);
+                    arrayList.set(i, arrayList.get(i+1));
+                    arrayList.set(i+1, m);
+                }
+
             }
         }
     }
